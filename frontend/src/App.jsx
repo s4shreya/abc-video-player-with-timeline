@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { BASE_URL } from "../config";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Header from "./components/header/Header";
+import MainContent from "./components/main/MainContent";
+import Footer from "./components/footer/Footer";
+
+const baseURL = BASE_URL;
+
+const App = () => {
+  const [loading, setLoading] = useState(false);
+  const [timelineData, setTimelineData] = useState(null);
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(baseURL)
+      .then((res) => {
+        console.log(`in app ${JSON.stringify(res.data.timeline_items)}`);
+        setTimelineData(res.data);
+      })
+      .catch((error) => {
+        console.log(`Error found! ${error.message}`);
+      });
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <Header />
+      <MainContent />
+      <Footer />
+    </div>
+  );
+};
 
-export default App
+export default App;
