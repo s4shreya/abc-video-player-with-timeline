@@ -26,8 +26,8 @@ const MainContent = () => {
 
   return (
     <div>
-      <VideoPlayer />
-      {timelineData && <Timeline timelineItems={timelineData.timeline_items} />}
+      {/* <VideoPlayer /> */}
+      {timelineData && <VideoPlayer timelineItems={timelineData.timeline_items} />}
     </div>
   );
 };

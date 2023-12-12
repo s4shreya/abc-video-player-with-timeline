@@ -1,0 +1,19 @@
+/* .container {
+    display: flex;
+    overflow: auto;
+} */
+
+.button-contianer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .img-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    border: 5px solid #ffffff;
+    border-radius: 10px;
+  }
+
+  
