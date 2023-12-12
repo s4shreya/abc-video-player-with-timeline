@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { BASE_URL } from "../../../config";
 import VideoPlayer from "./VideoPlayer";
-import Timeline from "./timeline/Timeline";
+import styles from './MainContent.module.css';
 
 const baseURL = BASE_URL;
 
@@ -25,8 +25,7 @@ const MainContent = () => {
   }, []);
 
   return (
-    <div>
-      {/* <VideoPlayer /> */}
+    <div className={styles["main-container"]}>
       {timelineData && <VideoPlayer timelineItems={timelineData.timeline_items} />}
     </div>
   );

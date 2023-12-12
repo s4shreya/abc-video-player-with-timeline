@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 
+import { FaCircleLeft } from "react-icons/fa6";
+import { FaCircleRight } from "react-icons/fa6";
 import TimelineCard from "./TimelineCard";
 import styles from "./Timeline.module.css";
 
@@ -23,30 +25,21 @@ const Timeline = (props) => {
       } else {
         setScrollLeftEnd(false);
       }
-    }, 25);
+    }, 80);
   };
 
   return (
-    <>
-      <div className={styles["button-container"]}>
-        <button
-          onClick={() => {
-            horizontalScrollHandler(-10);
-          }}
-          disabled={scrollLeftEnd}
-        >
-          Left
-        </button>
-        <button
-          onClick={() => {
-            horizontalScrollHandler(10);
-          }}
-        >
-          Right
-        </button>
-      </div>
-      Timeline
-      <div ref={scrollRef} className={styles["img-container"]}>
+    <div className={styles["timeline-container"]}>
+      <button
+        onClick={() => {
+          horizontalScrollHandler(-500);
+        }}
+        className={styles["scroll-left-button"]}
+        disabled={scrollLeftEnd}
+      >
+        <FaCircleLeft />
+      </button>
+      <div ref={scrollRef} className={styles["card-container"]}>
         {timelineItemsArray.map((data) => (
           <TimelineCard
             data={data}
@@ -54,7 +47,15 @@ const Timeline = (props) => {
           />
         ))}
       </div>
-    </>
+      <button
+        onClick={() => {
+          horizontalScrollHandler(500);
+        }}
+        className={styles["scroll-right-button"]}
+      >
+        <FaCircleRight />
+      </button>
+    </div>
   );
 };
 export default Timeline;

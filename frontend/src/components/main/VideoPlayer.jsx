@@ -11,7 +11,7 @@ const VideoPlayer = (props) => {
 
   const timelineItems = props.timelineItems;
 
-  // Function to seek to the given time
+  // Function to seek to the given time in the video
   const seekToPositionHandler = (position) => {
     videoPlayerRef.current.seekTo(position);
   };
@@ -26,9 +26,15 @@ const VideoPlayer = (props) => {
           playing
           light={videoThumbnail}
           className={styles.player}
+          width="100%"
+          height="100%"
+          
         />
       </div>
-      <Timeline timelineItems={timelineItems} seekToPositionHandler={seekToPositionHandler} />
+      <Timeline
+        timelineItems={timelineItems}
+        seekToPositionHandler={seekToPositionHandler}
+      />
     </div>
   );
 };

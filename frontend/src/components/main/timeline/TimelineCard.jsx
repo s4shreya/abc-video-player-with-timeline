@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+import styles from "./TimelineCard.module.css";
+import { FaPlay } from "react-icons/fa";
+
 const TimelineCard = (props) => {
   const [displayEntities, setDisplayEntities] = useState(false);
 
@@ -19,17 +22,13 @@ const TimelineCard = (props) => {
   };
 
   return (
-    <>
-      {/* TimelineCard */}
+    <div className={styles.card} onClick={seekHandler}>
       <img
         src={thumbnailImageURL}
-        width={300}
-        height={200}
         alt={data.entities[0].item_title}
       />
-      <button onClick={seekHandler}>data is {data.offset_seconds}</button>
-      <p>
-        Time :{" "}
+      <button  className={styles["seek-button"]}>
+        <FaPlay />
         {offsetTime[0] > 1
           ? `${offsetTime[0]} hours `
           : `${offsetTime[0]} hour `}
@@ -39,10 +38,8 @@ const TimelineCard = (props) => {
         {offsetTime[2] > 1
           ? `${offsetTime[2]} seconds `
           : `${offsetTime[2]} second `}
-      </p>
-      <p>{data.offset}</p>
-      <div>{displayEntities && data.entities.length}</div>
-    </>
+      </button>
+    </div>
   );
 };
 export default TimelineCard;
