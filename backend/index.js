@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://video-player-with-timeline-frontend.vercel.app/",
+      "https://video-player-with-timeline-frontend.vercel.app",
     ],
     method: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
