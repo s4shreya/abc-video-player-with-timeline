@@ -9,7 +9,10 @@ const app = express();
 // Middleware for handling CORS policy
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://video-player-with-timeline-frontend.vercel.app/",
+    ],
     method: ["GET"],
     allowedHeaders: ["Content-Type"],
   })
