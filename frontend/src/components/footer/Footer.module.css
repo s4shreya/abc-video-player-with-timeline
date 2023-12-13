@@ -1,13 +1,22 @@
 .footer {
-  background-color: lightsalmon;
-  text-align: center;
-  padding: 10px;
-  color: whitesmoke;
-  margin-top: 10px;
+  display: none;
 }
 
-.footer svg {
-  position: relative;
-  top: 3px;
-  margin: 0 3px;
+
+@media only screen and (min-width: 992px) {
+  .footer {
+    display: block;
+    background-color: lightsalmon;
+    text-align: center;
+    padding: 10px;
+    color: whitesmoke;
+    margin-top: 10px;
+  }
+  
+  .footer svg {
+    position: relative;
+    top: 3px;
+    margin: 0 3px;
+  }
+
 }

@@ -25,6 +25,7 @@ const VideoPlayer = (props) => {
           url="https://s3.ap-southeast-1.amazonaws.com/vod-static-files.sensara.tv/videos/Avengers.mp4"
           controls
           playing
+          preload="auto"
           light={videoThumbnail}
           className={styles.player}
           width="100%"
