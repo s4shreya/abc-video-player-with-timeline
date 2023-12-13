@@ -14,7 +14,7 @@ app.use(
       "https://video-player-with-timeline-frontend.vercel.app/",
     ],
     method: ["GET"],
-    allowedHeaders: ["Content-Type"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
