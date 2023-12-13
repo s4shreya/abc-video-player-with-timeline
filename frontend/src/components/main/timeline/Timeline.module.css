@@ -30,7 +30,7 @@
   color: lightcoral;
   background-color: rebeccapurple;
   border-radius: 50%;
-  box-shadow: 3px 3px 3px 2px seashell;
+  box-shadow: 1px 1px 2px seashell;
 }
 
 .scroll-left-button:hover,
@@ -40,13 +40,16 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .scroll-left-button svg, .scroll-right-button svg {
+  .scroll-left-button svg,
+  .scroll-right-button svg {
     font-size: 2rem;
+    box-shadow: 3px 3px 3px seashell;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .scroll-left-button svg, .scroll-right-button svg {
+  .scroll-left-button svg,
+  .scroll-right-button svg {
     font-size: 3rem;
   }
 }
