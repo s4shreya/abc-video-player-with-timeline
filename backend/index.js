@@ -13,7 +13,7 @@ app.use(
       "http://localhost:5173",
       "https://video-player-with-timeline-frontend.vercel.app/",
     ],
-    method: ["GET"],
+    method: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
@@ -25,7 +25,7 @@ const port = process.env.PORT || 5555;
 
 // Homepage route
 app.get("/", (request, response) => {
-  response.send(timelineData);
+  return response.status(234).send(timelineData);
 });
 
 // Listens to requests on the port
