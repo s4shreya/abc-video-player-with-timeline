@@ -5,6 +5,7 @@ import { BASE_URL } from "../../../config";
 import VideoPlayer from "./VideoPlayer";
 import styles from "./MainContent.module.css";
 import Loading from "./Loading";
+import VideoDescription from "./description/VideoDescription";
 
 const baseURL = BASE_URL;
 
@@ -30,7 +31,15 @@ const MainContent = () => {
       {loading ? (
         <Loading />
       ) : (
-        <VideoPlayer timelineItems={timelineData.timeline_items} />
+        <>
+          <VideoPlayer timelineItems={timelineData.timeline_items} />
+          <VideoDescription
+            title={timelineData.cms_title_display}
+            duration={timelineData.duration}
+            episodeNo={timelineData.item_title}
+            itemCount={timelineData.timeline_items.length}
+          />
+        </>
       )}
     </div>
   );
