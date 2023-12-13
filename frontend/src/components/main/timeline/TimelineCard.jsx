@@ -2,10 +2,9 @@ import { useState } from "react";
 
 import styles from "./TimelineCard.module.css";
 import { FaPlay } from "react-icons/fa";
+import Entities from "../entities/Entities";
 
 const TimelineCard = (props) => {
-  const [displayEntities, setDisplayEntities] = useState(false);
-
   const data = props.data;
   const thumbnailImageURL =
     "https://s3.ap-southeast-1.amazonaws.com/vod-static-files.sensara.tv/" +
@@ -17,17 +16,13 @@ const TimelineCard = (props) => {
   ];
 
   const seekHandler = () => {
-    props.seekToPositionHandler(data.offset_seconds);
-    setDisplayEntities(true);
+    props.seekToPositionHandler(data.offset_seconds, data.entities, offsetTime);
   };
 
   return (
     <div className={styles.card} onClick={seekHandler}>
-      <img
-        src={thumbnailImageURL}
-        alt={data.entities[0].item_title}
-      />
-      <button  className={styles["seek-button"]}>
+      <img src={thumbnailImageURL} alt={data.entities[0].item_title} />
+      <button className={styles["seek-button"]}>
         <FaPlay />
         {offsetTime[0] > 1
           ? `${offsetTime[0]} hours `

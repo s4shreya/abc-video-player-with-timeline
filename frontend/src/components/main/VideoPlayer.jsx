@@ -12,8 +12,9 @@ const VideoPlayer = (props) => {
   const timelineItems = props.timelineItems;
 
   // Function to seek to the given time in the video
-  const seekToPositionHandler = (position) => {
+  const seekToPositionHandler = (position, entities, offsetTime) => {
     videoPlayerRef.current.seekTo(position);
+    props.displayEntitiesHandler(entities, offsetTime);
   };
 
   return (

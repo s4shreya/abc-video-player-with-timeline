@@ -40,8 +40,9 @@ const Timeline = (props) => {
         <FaCircleLeft />
       </button>
       <div ref={scrollRef} className={styles["card-container"]}>
-        {timelineItemsArray.map((data) => (
+        {timelineItemsArray.map((data, index) => (
           <TimelineCard
+            key={index}
             data={data}
             seekToPositionHandler={seekToPositionHandler}
           />
