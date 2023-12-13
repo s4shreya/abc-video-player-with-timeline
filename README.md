@@ -12,6 +12,7 @@ A responsive Video player React application that seeks to the position in the vi
     * Object type
     * Emotion profile
 * Description of the playing video such as title, duration, episode, summary and total timeline entities.
+* Timeline JSON data is fetched using axios from the backend node.js server.
 * Responsive web application built with Mobile first approach that adapts to different screen sizes of mobiles, tablets and laptops.
 
 ### Live Demo
