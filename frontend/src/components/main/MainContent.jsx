@@ -14,6 +14,7 @@ const baseURL = BASE_URL;
 const MainContent = () => {
   const [loading, setLoading] = useState(true);
   const [timelineData, setTimelineData] = useState(null);
+  const [sortedTimelineItems, setSortedTimelineItems] = useState([]);
   const [displayEntities, setDisplayEntities] = useState(false);
   const [timeStamp, setTimeStamp] = useState(0);
 
@@ -25,6 +26,11 @@ const MainContent = () => {
       .get(baseURL)
       .then((res) => {
         setTimelineData(res.data);
+
+        let arr = [...res.data.timeline_items];
+        arr.sort((a, b) => a.offset_seconds - b.offset_seconds);
+        setSortedTimelineItems(arr);
+
         setLoading(false);
       })
       .catch((error) => {
@@ -45,10 +51,13 @@ const MainContent = () => {
         <Loading />
       ) : (
         <>
-          <VideoPlayer
-            timelineItems={timelineData.timeline_items}
-            displayEntitiesHandler={displayEntitiesHandler}
-          />
+          {sortedTimelineItems && (
+            <VideoPlayer
+              // timelineItems={timelineData.timeline_items}
+              timelineItems={sortedTimelineItems}
+              displayEntitiesHandler={displayEntitiesHandler}
+            />
+          )}
           {displayEntities && (
             <>
               <h3 className={styles["timestamp-heading"]}>

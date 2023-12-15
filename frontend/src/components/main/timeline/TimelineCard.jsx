@@ -1,8 +1,5 @@
-import { useState } from "react";
-
 import styles from "./TimelineCard.module.css";
 import { FaPlay } from "react-icons/fa";
-import Entities from "../entities/Entities";
 
 const TimelineCard = (props) => {
   const data = props.data;

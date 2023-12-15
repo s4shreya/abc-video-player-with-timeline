@@ -15,6 +15,7 @@
   text-shadow: 3px 3px 2px aliceblue;
 }
 
+
 @keyframes wavvy {
   0%,
   40%,
@@ -26,7 +27,7 @@
   }
 }
 
-.heading span:nth-child(1) {
+/* .heading span:nth-child(1) {
   animation-delay: 0.1s;
 }
 .heading span:nth-child(2) {
@@ -61,7 +62,7 @@
 }
 .heading span:nth-child(12) {
   animation-delay: 1.2s;
-}
+} */
 
   
   @media only screen and (min-width: 768px) {
